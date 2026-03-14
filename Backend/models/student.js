@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: {
             msg: "Name cannot be empty"
           },
+          len: {
+            args: [1, 50],
+            msg: "Name must be between 1 and 50 characters"
+          },
           is: {
             args: /^[A-Za-z\s]+$/,
             msg: "Name must contain only letters and spaces"
