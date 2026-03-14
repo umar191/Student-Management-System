@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #09090b; /* Very dark zinc */
+  --foreground: #f8fafc; /* Very light slate */
+  --primary: #0ea5e9; /* Sky blue */
+  --primary-glow: rgba(14, 165, 233, 0.4);
+  --secondary: #0284c7; /* Darker sky blue */
+  --accent: #38bdf8; /* Lighter sky blue */
+  --card-bg: #18181b; /* Dark zinc */
+  --card-border: #27272a; /* Zinc outline */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+.auth-container {
+  @apply min-h-screen flex items-center justify-center bg-[#09090b] p-4 relative overflow-hidden;
+}
+
+.auth-container::before {
+  content: "";
+  position: fixed;
+  top: -20%; left: -10%; width: 60%; height: 60%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(9, 9, 11, 0) 70%);
+  border-radius: 50%; z-index: 0;
+  animation: float 15s infinite ease-in-out;
+}
+
+.auth-container::after {
+  content: "";
+  position: fixed;
+  bottom: -20%; right: -10%; width: 60%; height: 60%;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.15) 0%, rgba(9, 9, 11, 0) 70%);
+  border-radius: 50%; z-index: 0;
+  animation: float-reverse 12s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(2%, 5%) scale(1.05); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes float-reverse {
+  0% { transform: translate(0, 0) scale(1.05); }
+  50% { transform: translate(-2%, -5%) scale(1); }
+  100% { transform: translate(0, 0) scale(1.05); }
+}
+
+.auth-card {
+  @apply bg-[#18181b] p-8 rounded-2xl shadow-2xl border border-[#27272a] w-full max-w-md relative z-10 transition-all duration-500 hover:border-[#0ea5e9]/30 hover:shadow-[0_0_30px_rgba(14,165,233,0.1)];
+  backdrop-filter: blur(10px);
+}
+
+.input-field {
+  @apply w-full bg-[#09090b] border border-[#27272a] text-white rounded-lg pl-10 pr-4 py-3 outline-none transition-all duration-300 placeholder-zinc-500 focus:bg-[#18181b] focus:border-[#0ea5e9] focus:ring-1 focus:ring-[#0ea5e9];
+}
+
+.btn-primary {
+  @apply w-full bg-gradient-to-r from-[#0284c7] to-[#0ea5e9] text-white p-3 rounded-lg font-medium shadow-lg shadow-[#0ea5e9]/20 transition-all duration-300 hover:shadow-[#0ea5e9]/40 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none;
+}
+
+.btn-secondary {
+  @apply bg-[#09090b] border border-[#27272a] text-[#f8fafc] px-4 py-2 rounded-lg font-medium hover:bg-[#27272a] hover:border-[#3f3f46] transition-all duration-300 shadow-sm hover:shadow active:scale-95;
+}
+
+.btn-danger {
+  @apply bg-red-950/30 text-red-500 px-3 py-1.5 rounded border border-red-900/50 font-medium hover:bg-red-900/40 hover:text-red-400 hover:border-red-800 transition-colors duration-300 active:scale-95;
+}
+
+.dashboard-container {
+  @apply min-h-screen flex flex-col bg-[#09090b] relative overflow-hidden;
+}
+
+.dashboard-container::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: 
+    radial-gradient(circle at 15% 50%, rgba(14, 165, 233, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(2, 132, 199, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
