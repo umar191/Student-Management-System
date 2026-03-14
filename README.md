@@ -1,6 +1,6 @@
 # 🎓 Student Management System
 
-![Dashboard Preview](./frontend/public/dashboard-preview.png)
+
 
 A full-stack, aesthetically modern web application designed for administrators to efficiently manage student records. Built with a robust robust backend (Node.js/Express/MySQL) and a stunning frontend (Next.js/React/Tailwind CSS), featuring a fiery blue and dark black UI theme.
 
